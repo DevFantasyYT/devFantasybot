@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, arguments) => {
     
     var idee = arguments.join(' ');
 
-    var author = message.author;s
+    var author = message.author;
 
     if (!idee) return message.channel.send("**Geef een mededeling mee!**");
 
