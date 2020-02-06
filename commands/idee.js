@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, arguments) => {
 
     message.channel.send("Idee opgegeven!");
 
-    message.delete();
+    ctx.message.delete()
 
 }
 
