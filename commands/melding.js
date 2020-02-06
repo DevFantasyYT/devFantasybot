@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, arguments) => {
 
     if (!idee) return message.channel.send("**Geef een mededeling mee!**");
 
-    var ideeEmbed = new discord.RichEmbed()
+    var meldingEmbed = new discord.RichEmbed()
         .setTitle("**Nieuw mededeling!**")
         .setColor("#a6732b")
         .addField("Melding:", idee)
@@ -24,5 +24,5 @@ module.exports.run = async (bot, message, arguments) => {
 }
 
 module.exports.help = {
-    name: "melding"
+    name: "mededeling"
 }
