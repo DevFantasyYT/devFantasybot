@@ -18,7 +18,13 @@ module.exports.run = async (bot, message, arguments) => {
         embedMessage.react('👍');
         embedMessage.react('👎');
 
+        
+
     });
+
+    message.channel.send("Idee opgegeven!");
+
+    message.delete();
 
 }
 
