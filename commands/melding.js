@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, arguments) => {
         .addField("Melding:", idee)
         .setFooter(`Ingezonden door`, author);
 
-    var mmeldingChannel = message.guild.channels.find("name", "✉〉mededelingen");
+    var meldingChannel = message.guild.channels.find("name", "✉〉mededelingen");
     if (!meldingChannel) return message.channel.send("Kanaal niet gevonden!");
 
     meldingChannel.send(meldingEmbed)
