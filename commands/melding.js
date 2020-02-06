@@ -12,9 +12,9 @@ module.exports.run = async (bot, message, arguments) => {
 
     var ideeEmbed = new discord.RichEmbed()
         .setTitle("**Nieuw mededeling!**")
-        .setColor("#35fc03")
+        .setColor("#a6732b")
         .addField("Melding:", idee)
-        .addFooter(`Ingezonden door ${author}`);
+        .setFooter(`Ingezonden door`, author);
 
     var mmeldingChannel = message.guild.channels.find("name", "✉〉mededelingen");
     if (!meldingChannel) return message.channel.send("Kanaal niet gevonden!");
