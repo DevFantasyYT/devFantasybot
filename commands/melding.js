@@ -13,8 +13,7 @@ module.exports.run = async (bot, message, arguments) => {
     var meldingEmbed = new discord.RichEmbed()
         .setTitle("**Nieuw mededeling!**")
         .setColor("#a6732b")
-        .addField("Melding:", idee)
-        .setFooter(`Ingezonden door`, author);
+        .addField("Melding:", idee);
 
     var meldingChannel = message.guild.channels.find("name", "✉〉mededelingen");
     if (!meldingChannel) return message.channel.send("Kanaal niet gevonden!");
