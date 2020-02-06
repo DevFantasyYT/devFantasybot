@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, arguments) => {
         .setTitle("**Nieuw mededeling!**")
         .setColor("#a6732b")
         .addField("Melding:", idee)
-        .setDescription("Ingezonden door",  message.author);
+        .setFooter("Ingezonden door",  message.author);
 
     var meldingChannel = message.guild.channels.find("name", "✉〉mededelingen");
     if (!meldingChannel) return message.channel.send("Kanaal niet gevonden!");
