@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, arguments) =>{
     
     var memberIcon = message.author.avatarURL
 
-    var testjes = message.guild.status
+    var testjes = member.guild.roles.find("all")
 
     var botEmbed = new discord.RichEmbed()
 
@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, arguments) =>{
         .addField("Naam:", message.author.username)
         .addField("ID:", message.author.id)
         .addField("Server gejoind:", message.guild.joinedAt)
-        .addField("Test field", testjes)
+        .addField("Roles", testjes)
 
     return message.channel.send(botEmbed);
 }
