@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, arguments) =>{
 	.setColor('#0099ff')
 	.setTitle('Some title')
 	.setURL('https://discord.js.org/')
-	.setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
+	.setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png')
 	.setDescription('Some description here')
 	.setThumbnail('https://i.imgur.com/wSTFkRM.png')
 	.addField('Regular field title', 'Some value here')
