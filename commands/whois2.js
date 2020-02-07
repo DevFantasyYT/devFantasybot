@@ -2,7 +2,7 @@ const discord = require("discord.js");
 
 module.exports.run = async (bot, message, arguments) =>{
 
-    const exampleEmbed = new Discord.RichEmbed()
+    const exampleEmbed = new discord.RichEmbed()
 	.setColor('#0099ff')
 	.setTitle('Some title')
 	.setURL('https://discord.js.org/')
