@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, arguments) =>{
 
     const exampleEmbed = new discord.RichEmbed()
 	.setColor('#0099ff')
-	.setTitle(`Profiel van: ${user}`,)
+	.setTitle(`Profiel van:` user,)
 	.setThumbnail(icon)
 	.addField('ID:', user)
     .addField("Account gemaakt op:", `${moment.utc(user.createdAt).format("dddd, MMMM Do YYYY")}`, true) 
