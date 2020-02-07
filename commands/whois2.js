@@ -14,7 +14,6 @@ module.exports.run = async (bot, message, arguments) =>{
 	.addField('ID:', user)
     .addField("Account gemaakt op:", `${moment.utc(user.createdAt).format("dddd, MMMM Do YYYY")}`, true) 
     .addField("Gejoined op:", `${moment.utc(user.joinedAt).format("dddd, MMMM Do YYYY")}`, true)
-    .addField("Roles:", user.roles.map(roles => `${roles}`).join(', '))
 	.setTimestamp()
     .setFooter('Profiel info!');
     
