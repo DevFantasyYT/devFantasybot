@@ -12,7 +12,6 @@ module.exports.run = async (bot, message, arguments) =>{
 	.addField('ID:', message.member.id)
 	.addField('Gejoint op:',  moment(message.guild.members.get.joinedAt).format("Do MMM YY"))
 	.addField('Account:', moment(message.guild.members.get.createAt).format("Do MMM YY"))
-    .addField("Roles:", member.roles.map(roles => `${roles}`).join(', '))
 	.setTimestamp()
     .setFooter('Profiel info!');
     
