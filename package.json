@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon"
+    "start": "nodemon",
+    "begin": "moment"
   },
   "author": "Fantasy",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^11.5.1",
+    "moment": "^2.24.0",
     "ms": "^2.1.2",
     "nodemon": "^2.0.2"
   }
