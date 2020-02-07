@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, arguments) =>{
 	.setColor('#0099ff')
 	.setTitle(`Profiel van: ${message.author.username}`,)
 	.setThumbnail(icon)
-	.addField('ID:', member.guild.id)
+	.addField('ID:', message.member.id)
 	.addField('Inline field title', 'Some value here')
 	.addField('Inline field title', 'Some value here')
 	.addField('Inline field title', 'Some value here')
