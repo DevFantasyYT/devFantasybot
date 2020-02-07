@@ -10,7 +10,6 @@ module.exports.run = async (bot, message, args) => {
         .setColor("RED")
         .setThumbmail(user.avatarURL)
         .setTimestamp()
-        .setFooter("Gebruiker informatie!")
         .addField("Naam:", user.username)
         .addField("Status:", user.presence.status)
         .addField("Gejoint op", moment(message.guild.members.get(user.id).joinedAt).format("MMM Do YY"))
