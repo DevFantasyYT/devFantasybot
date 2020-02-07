@@ -3,7 +3,9 @@ const moment = require("moment");
 
 module.exports.run = async (bot, message, arguments) =>{
 
-	var user = message.mentions.users.first || message.author
+	var user = message.mentions.users.first || message.author;
+
+	const member = message.guild.member(user);
 	
 		var icon = message.guild.iconURL;
 
