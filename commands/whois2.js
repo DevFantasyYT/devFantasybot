@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, arguments) =>{
 
     const exampleEmbed = new discord.RichEmbed()
 	.setColor('#0099ff')
-	.setTitle('Profiel van:', user.username)
+	.setTitle('Profiel van:', message.author.username)
 	.setThumbnail(icon)
 	.addField('Regular field title', 'Some value here')
 	.addField('Inline field title', 'Some value here', true)
