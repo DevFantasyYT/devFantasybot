@@ -6,10 +6,8 @@ module.exports.run = async (bot, message, args) => {
     var user = message.guild.member(message.mentions.users.first() || message.author);
 
     var embedCreate = new discord.RichEmbed()
-        .setAuthor(user.tag, user.avatarURL)
         .setColor("RED")
         .setThumbmail(user.avatarURL)
-        .setTimestamp()
         .addField("Naam:", user.username)
         .addField("Status:", user.presence.status)
         .addField("Gejoint op", moment(message.guild.members.get(user.id).joinedAt).format("MMM Do YY"))
