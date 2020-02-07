@@ -3,17 +3,16 @@ const moment = require("moment");
 
 module.exports.run = async (bot, message, arguments) =>{
 
-	var user = message.mentions.users.first || message.author;
-	
-	var icon = message.guild.iconURL;
+    var icon = message.guild.iconURL;
 
     const exampleEmbed = new discord.RichEmbed()
 	.setColor('#0099ff')
-	.setTitle(`Uw profiel!`)
+	.setTitle(`Profiel van: ${message.author.username}`,)
 	.setThumbnail(icon)
-	.addField('ID:', user)
-    .addField("Account gemaakt op:", `${moment.utc(user.createdAt).format("dddd, MMMM Do YYYY")}`, true) 
-    .addField("Gejoined op:", `${moment.utc(user.joinedAt).format("dddd, MMMM Do YYYY")}`, true)
+	.addField('ID:', message.member.id)
+	.addField('Gejoint op:',  moment(message.guild.members.get.joinedAt).format("Do MMM YY"))
+	.addField('Account:', moment(message.guild.members.get.createAt).format("Do MMM YY"))
+    .addField("Roles:", member.roles.map(roles => `${roles}`).join(', '))
 	.setTimestamp()
     .setFooter('Profiel info!');
     
