@@ -1,13 +1,12 @@
 const discord = require("discord.js");
 const moment = require("moment");
+const member = message.guild.member(user);
 
 module.exports.run = async (bot, message, arguments) =>{
 
 	var user = message.mentions.users.first || message.author;
-
-	const member = message.guild.member(user);
 	
-		var icon = message.guild.iconURL;
+	var icon = message.guild.iconURL;
 
     const exampleEmbed = new discord.RichEmbed()
 	.setColor('#0099ff')
