@@ -1,6 +1,5 @@
 const discord = require("discord.js");
 const moment = require("moment");
-const member = message.guild.member(user);
 
 module.exports.run = async (bot, message, arguments) =>{
 
@@ -14,8 +13,8 @@ module.exports.run = async (bot, message, arguments) =>{
 	.setThumbnail(icon)
 	.addField('ID:', user)
     .addField("Account gemaakt op:", `${moment.utc(user.createdAt).format("dddd, MMMM Do YYYY")}`, true) 
-    .addField("Gejoined op:", `${moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY")}`, true)
-    .addField("Roles:", member.roles.map(roles => `${roles}`).join(', '))
+    .addField("Gejoined op:", `${moment.utc(user.joinedAt).format("dddd, MMMM Do YYYY")}`, true)
+    .addField("Roles:", user.roles.map(roles => `${roles}`).join(', '))
 	.setTimestamp()
     .setFooter('Profiel info!');
     
