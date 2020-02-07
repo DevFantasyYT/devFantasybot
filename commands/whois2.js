@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, arguments) =>{
 	.setTitle(`Profiel van: ${message.author.username}`,)
 	.setThumbnail(icon)
 	.addField('ID:', message.member.id)
-	.addField('Inline field title', 'Some value here')
+	.addField('Gejoint op',  moment(message.guild.members.get(user.id).joinedAt).format("MMM Do YY"))
 	.addField('Inline field title', 'Some value here')
 	.addField('Inline field title', 'Some value here')
 	.setTimestamp()
