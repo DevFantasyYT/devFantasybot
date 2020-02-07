@@ -5,17 +5,11 @@ module.exports.run = async (bot, message, args) => {
 
     var user = message.author;
 
-    var embedCreate = new discord.RichEmbed()
-    .setColor("RED")
-    .setThumbmail(user.avatarURL)
-    .setTimestamp()
-    .setFooter("Gebruiker informatie!")
-    .addField("Naam:", user.username)
-    .addField("Status:", user.presence.status)
-    .addField("Gejoint op", user.joinedAt)
-    .addField("Account gemaakt op:", user.createAt);
+    var createEmbed = new Discord.RichEmbed()
+    .addField("Testje", user);
 
- message.channel.send(embedCreate);
+    message.channel.send(createEmbed)
+
 }
 
 module.exports.help = {
