@@ -13,8 +13,8 @@ module.exports.run = async (bot, message, args) => {
     .setFooter("Gebruiker informatie!")
     .addField("Naam:", user.username)
     .addField("Status:", user.presence.status)
-    .addField("Gejoint op", moment(message.guild.members.get(user.id).joinedAt).format("MMM Do YY"))
-    .addField("Account gemaakt op:", moment(message.guild.members.get(user.id).createAt).format("MMM Do YY"));
+    .addField("Gejoint op", user.joinedAt)
+    .addField("Account gemaakt op:", user.createAt);
 
  message.channel.send(embedCreate);
 }
