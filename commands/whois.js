@@ -3,23 +3,20 @@ const moment = require('moment');
 
 module.exports.run = async (bot, message, args) => {
 
-    let user = message.mentions.users.first() || message.author;
-    const joinDiscord = moment(user.createdAt).format('llll');
-    const joinServer = moment(user.joinedAt).format('llll');
-    let embed = new Discord.RichEmbed()
-        .setAuthor(user.username + '#' + user.discriminator, user.displayAvatarURL)
-        .setDescription(`${user}`)
-        .setColor(`RANDOM`)
-        .setThumbnail(`${user.displayAvatarURL}`)
-        .addField('Joined at:', `${moment.utc(user.joinedAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`, true)
-        .addField('Status:', user.presence.status, true)
-        .addField('Roles:', user.roles.map(r => `${r}`).join(' | '), true)
-        .setFooter(`ID: ${user.id}`)
-        .setTimestamp();
+    var user = message.mentions.users.first() || message.author;
 
-    message.channel.send({ embed: embed });
-    
-    return;
+    var embedCreate = new discord.RichEmbed()
+        .setAuthor(user.tag, user.avatarURL)
+        .setColor("RED")
+        .setThumbmail(user.avatarURL)
+        .setTimestamp()
+        .setFooter("Gebruiker informatie!")
+        .addField("Naam:", user.username)
+        .addField("Status:", user.presence.status)
+        .addField("Gejoint op", moment(message.guild.members.get(user.id).joinedAt).format("MMM Do YY"))
+        .addField("Account gemaakt op:", moment(message.guild.members.get(user.id).createAt).format("MMM Do YY"));
+
+    message.channel.send(embedCreate);
 }
 
 module.exports.help = {
