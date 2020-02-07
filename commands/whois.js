@@ -3,10 +3,9 @@ const moment = require('moment');
 
 module.exports.run = async (bot, message, args) => {
 
-    var user = message.mentions.users.first() || message.author;
+    var user = message.author;
 
     var embedCreate = new discord.RichEmbed()
-    .setAuthor(user.tag, user.avatarURL)
     .setColor("RED")
     .setThumbmail(user.avatarURL)
     .setTimestamp()
