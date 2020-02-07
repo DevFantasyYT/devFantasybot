@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Gejoint op", moment(message.guild.members.get(user.id).joinedAt).format("MMM Do YY"))
     .addField("Account gemaakt op:", moment(message.guild.members.get(user.id).createAt).format("MMM Do YY"));
 
-    message.channel.send(embedCreate);
+ message.channel.send(embedCreate);
 }
 
 module.exports.help = {
