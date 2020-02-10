@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, arguments) =>{
 
         var serverEmbed = new discord.RichEmbed()
             .setDescription("Server info")
-            .setColor("#d11717")
+            .setColor("#9e5811")
             .setThumbnail(icon)
             .addField("Je bent gejoint op:", message.guild.joinedAt)
             .addField("Totaal members:", message.guild.memberCount);

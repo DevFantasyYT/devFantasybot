@@ -1,21 +1,24 @@
 const discord = require("discord.js");
-const moment = require('moment');
+const moment = require("moment");
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, message, arguments) =>{
 
-    var user = message.guild.member(message.mentions.users.first() || message.author);
+    var icon = message.author.avatarURL;
 
-    var embedCreate = new discord.RichEmbed()
-        .setColor("RED")
-        .setThumbmail(user.avatarURL)
-        .addField("Naam:", user.username)
-        .addField("Status:", user.presence.status)
-        .addField("Gejoint op", moment(message.guild.members.get(user.id).joinedAt).format("MMM Do YY"))
-        .addField("Account gemaakt op:", moment(message.guild.members.get(user.id).createAt).format("MMM Do YY"));
+    const exampleEmbed = new discord.RichEmbed()
+	.setColor('#9e5811')
+	.setTitle(`Profiel van: ${message.author.username}`,)
+	.setThumbnail(icon)
+	.addField('ID:', message.member.id)
+	.addField('Gejoint op:',  moment(message.author.joinedAt).format("Do MMM YY"))
+	.addField('Account:', moment(message.author.createAt).format("Do MMM YY"))
+	.setTimestamp()
+    .setFooter('Profiel info!');
+    
+    message.channel.send(exampleEmbed);
 
-    message.channel.send(embedCreate);
 }
 
 module.exports.help = {
-    name: 'whois'
+    name: "whois"
 }

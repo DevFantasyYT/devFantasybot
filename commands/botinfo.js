@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, arguments) =>{
 
     var botEmbed = new discord.RichEmbed()
         .setDescription("Discord bot info.")
-        .setColor("#d11717")
+        .setColor("#9e5811")
         .setThumbnail(botIcon)
         .addField("Bot naam:", bot.user.username)
         .addField("Gemaakt op:", bot.user.createdAt);
