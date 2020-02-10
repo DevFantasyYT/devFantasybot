@@ -12,8 +12,8 @@ module.exports.run = async (bot, message, arguments) =>{
 	.setTitle(`Profiel van: ${user.username}`,)
 	.setThumbnail(icon)
 	.addField('ID:', user.id)
-	.addField('Gejoint op:',  moment(user.guild.joinedAt).format("Do MMM YY"))
-	.addField('Account:', moment(user.guild.createAt).format("Do MMM YY"))
+	.addField('Gejoint op:',  moment(user.joinedAt).format("Do MMM YY"))
+	.addField('Account:', moment(user.createAt).format("Do MMM YY"))
 	.setTimestamp()
     .setFooter('Profiel info!');
     
