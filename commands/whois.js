@@ -3,7 +3,7 @@ const moment = require("moment");
 
 module.exports.run = async (bot, message, arguments) =>{
 
-	var icon = user.avatarURL;
+	var icon = message.mentions.users.first.avatarURL() || message.author.avatarURL;
 	
 	var user = message.mentions.users.first() || message.author;
 
