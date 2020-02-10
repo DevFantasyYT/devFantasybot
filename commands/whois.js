@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, arguments) =>{
 
     const exampleEmbed = new discord.RichEmbed()
 	.setColor('#9e5811')
-	.setTitle(`Profiel van: ${message.user.username}`,)
+	.setTitle(`Profiel van: ${user.username}`,)
 	.setThumbnail(icon)
 	.addField('ID:', message.user.id)
 	.addField('Gejoint op:',  moment(message.user.joinedAt).format("Do MMM YY"))
