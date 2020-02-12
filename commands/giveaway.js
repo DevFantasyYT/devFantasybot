@@ -6,6 +6,7 @@ module.exports.run = async (bot, message, arguments) => {
 
     if(message.channel.parentID == catogoryId){
     
+    var role = member.guild.roles.find("name", "GiveAway");
     var item = "";
     var time;
     var winnerCount;
@@ -18,6 +19,14 @@ module.exports.run = async (bot, message, arguments) => {
     time = arguments[1];
     // Welke prijs men kan winnen.
     item = arguments.splice(2, arguments.length).join(' ');
+
+    if(!role) return message.channel.send("U kunt dit niet doen!");
+    
+    if(!winnerCount) return message.channel.send("Geef een aantal winnaars op!");
+
+    if(!time) return message.channel.send("Geef een tijd op!");
+
+    if(!item) return message.channel.send("Geef een item op!");
  
     // Verwijder het bericht dat net is gemaakt door de gebruiker.
     message.delete();

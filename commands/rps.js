@@ -1,60 +1,53 @@
 const discord = require("discord.js");
+const { RichEmbed } = require("discord.js");
+const { promptMessage } = require("../../functions.js");
 
 module.exports.run = async (bot, message, arguments) =>{
 
-    // !rps steen papier schaar.
-
-    if(!arguments[0]) return message.channel.send("**Gebruik, !rps <steen papier of schaar>**");
-
-    var options = ["steen", "papier", "schaar"];
-
-    var result = options[Math.floor(Math.random() * options.length)];
-
-    if(arguments[0] == "steen"){
-
-        if(result = "papier"){
-
-            message.channel.send(`Ik heb ${result} :notepad_spiral:, ik win!`);
-
-         }
-         else if(result == "schaar"){
-             message.channel.send(`Ik heb ${result} :scissors:,  jij wint!`);
-         }
-         else if(result == "steen"){
-            message.channel.send(`Ik heb ${result} :moyal:,  gelijkspel!`);
-         }
-
-    }
-    else if(arguments[0] == "papier"){
-
-        if(result = "schaar"){
-
-            message.channel.send(`Ik heb ${result} :scissors:, ik win!`);
-            
-         }
-         if(result == "steen"){
-             message.channel.send(`Ik heb ${result} :moyai:,  jij wint!`);
-         }
-         if(result == "papier"){
-            message.channel.send(`Ik heb ${result} :notepad_spiral:,  gelijkspel!`);
-         }
-
-    }
-    else if(arguments[0] == "schaar"){
-
-        if(result = "steen"){
-
-            message.channel.send(`Ik heb ${result} :moyai:, ik win!`);
-            
-         }else if(result == "schaar"){
-             message.channel.send(`Ik heb ${result} :notepad_spiral:,  gelijkspel`);
-         }else if(result == "papier"){
-            message.channel.send(`Ik heb ${result} :notepad_spiral:,  jij wint!`);
-         }
-
+    const chooseArr = ["🗻", "📰", "✂"];
+    
+    module.exports = {
+        name: "rps",
+        category: "fun",
+        description: "Rock Paper Scissors game. React to one of the emojis to play the game.",
+        usage: "rps",
+        run: async (client, message, args) => {
+            const embed = new RichEmbed()
+                .setColor("#ffffff")
+                .setFooter(message.guild.me.displayName, client.user.displayAvatarURL)
+                .setDescription("Add a reaction to one of these emojis to play the game!")
+                .setTimestamp();
+    
+            const m = await message.channel.send(embed);
+            const reacted = await promptMessage(m, message.author, 30, chooseArr);
+    
+            const botChoice = chooseArr[Math.floor(Math.random() * chooseArr.length)];
+    
+            const result = await getResult(reacted, botChoice);
+            await m.clearReactions();
+    
+            embed
+                .setDescription("")
+                .addField(result, `${reacted} vs ${botChoice}`);
+    
+            m.edit(embed);
+    
+            function getResult(me, clientChosen) {
+                if ((me === "🗻" && clientChosen === "✂") ||
+                    (me === "📰" && clientChosen === "🗻") ||
+                    (me === "✂" && clientChosen === "📰")) {
+                        return "You won!";
+                } else if (me === clientChosen) {
+                    return "It's a tie!";
+                } else {
+                    return "You lost!";
+                }
+            }
+        }
     }
 
 }
+
 
 module.exports.help = {
     name: "rps"
